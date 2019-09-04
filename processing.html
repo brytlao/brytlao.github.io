@@ -64,9 +64,11 @@
 								78, "Particle System", "https://www.openprocessing.org/sketch/731647", "2D particle simluation",
 								88, "Snowfall", "https://www.openprocessing.org/sketch/730698", "2D force simulation with textures",
 								138, "Angry Birds", "https://editor.p5js.org/brytlao/full/22eGDtfAB", "Angry birds clone",
-								999, "Waterfall", "https://editor.p5js.org/brytlao/full/CBZBSAqDM", "Waterfall simulation",
-								1000, "Waterfall (PE)", "https://editor.p5js.org/brytlao/full/M9fYPI4iJ", "Waterfall using physics engine",
-								111, "Animated Sprites", "https://editor.p5js.org/brytlao/full/dPS-YDRzc", "Looped animation"];
+								1001, "Waterfall Engine", "https://editor.p5js.org/brytlao/full/M9fYPI4iJ", "Waterfall using physics engine",
+								1002, "Waterfall Obstacles", "https://editor.p5js.org/brytlao/full/CBZBSAqDM", "Waterfall simulation with obstacles",
+								111, "Animated Sprites", "https://editor.p5js.org/brytlao/full/dPS-YDRzc", "Looped animation",
+								1003, "Waterfall Bloom", "https://editor.p5js.org/brytlao/full/aoDVw2mHx", "Inspired by TeamLab"
+							];
 
 							// change demo loaded
 							function changeDemo(in_index) {
@@ -78,14 +80,25 @@
 							// change demo title
 							function changeTitle(in_index) {
 								let new_name = "";
+								// distinguish ~Coding Challenge~ from ~Personal Project~
+								let project_title = "";
+								let disp_num = in_index;
+								if (in_index < 1000) {
+									project_title = "CC";
+								} else {
+									project_title = "PP";
+									disp_num = in_index - 1000;
+								}
+
 								// num zeros to add:
 								let zeros = "";
-								if (in_index >= 1 && in_index <= 9) {
+								if (disp_num >= 1 && disp_num <= 9) {
 									zeros = zeros.concat("00");
-								} else if (in_index >= 10 && in_index <= 99) {
+								} else if (disp_num >= 10 && disp_num <= 99) {
 									zeros = zeros.concat("0");
 								}
-								new_name = new_name.concat("CC",zeros,in_index,": ",sl[sl.indexOf(in_index)+1]);
+								
+								new_name = new_name.concat(project_title,zeros,disp_num,": ",sl[sl.indexOf(in_index)+1]); // HERE
 								document.getElementById("sketch_title").innerHTML = new_name;
 							}
 
@@ -124,12 +137,12 @@
 							<ul class="actions fit small" style="margin-top:-10px">
 								<li><a class="button fit small" onclick="changeDemo(4)">Purple Rain</a></li>
 								<li><a class="button fit small" onclick="changeDemo(11)">3D Terrain</a></li>
-								<li><a class="button fit small" onclick="changeDemo(999)">Waterfall</a></li>
+								<li><a class="button fit small" onclick="changeDemo(111)">Animated Sprites</a></li>
 							</ul>
 							<ul class="actions fit small" style="margin-top:-10px">
-								<li><a class="button fit small" onclick="changeDemo(1000)">Waterfall (PE)</a></li>
-								<li><a class="button fit small" onclick="changeDemo(111)">Animated Sprites</a></li>
-								<li><a class="button fit small" >&lt;Under Construction&gt;</a></li>
+								<li><a class="button fit small" onclick="changeDemo(1001)">Waterfall Engine</a></li>
+								<li><a class="button fit small" onclick="changeDemo(1002)">Waterfall Obstacle</a></li>
+								<li><a class="button fit small" onclick="changeDemo(1003)">Waterfall Bloom</a></li>
 							</ul>
 						</article>
 					</div>
