@@ -11,6 +11,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<link rel="stylesheet" href="assets/slick/slick.css" />
+		<link rel="stylesheet" href="assets/slick/slick-theme.css" />
 	</head>
 	<body class="is-preload">
 
@@ -52,41 +54,27 @@
 								</header>
 							</section>
 
-							<!-- Photos -->						
-							<section class="posts">
-								<article>
-									<h4>Grande Santa Cruz</h4>
-									<img class="image fit" src="my_images/photography/philippines.jpg" alt="" />
-								</article>
-								<article>
-									<h4>Osaka Expo Park</h4>
-									<img class="image fit" src="my_images/photography/girl.jpg" alt="" />
-								</article>
-								<article>
-									<h4>Nagasaki Peace Park</h4>
-									<img class="image fit" src="my_images/photography/couple.jpg" alt="" />
-								</article>
-								<article>
-									<h4>Yakan Weaving Village</h4>
-									<img class="image fit" src="my_images/photography/boy.jpg" alt="" />
-								</article>
-								<article>
-									<h4>Akahadayama Kiln</h4>
-									<img class="image fit" src="my_images/photography/workshop.jpg" alt="" />
-								</article>
-								<article>
-									<h4>Saho River</h4>
-									<img class="image fit" src="my_images/photography/hanami.jpg" alt="" />
-								</article>
-								<article>
-									<h4>Marina Bay Fireworks</h4>
-									<img class="image fit" src="my_images/photography/fireworks.jpg" alt="" />
-								</article>
-								<article>
-									<h4>Mt Inasa</h4>
-									<img class="image fit" src="my_images/photography/nagasaki.jpg" alt="" />
-								</article>
-							</section>
+							<!-- Carousel -->
+							<article class="post" id="carousel">
+								<header class="major">
+									<div class="your-class">
+										<div>
+											<h3 style="margin-top:-5px" style="margin-bottom:-5px">Grande Santa Cruz</h3>
+											<img class="image fit" src="my_images/photography/philippines.jpg" alt=""
+												style="text-align:center;padding-left:20px;padding-right:20px;"/>
+										</div>
+										<div>
+											<h3 style="margin-top:-5px" style="margin-bottom:-5px">Osaka Expo Park</h3>
+											<img class="image fit" src="my_images/photography/girl.jpg" alt=""
+												style="text-align:center;padding-left:20px;padding-right:20px;"/>
+										</div>
+										<div>
+											<h3 style="margin-top:-5px" style="margin-bottom:-5px">Marina Bay Fireworks</h3>
+											<img class="image fit" src="my_images/photography/fireworks.jpg" alt=""
+												style="text-align:center;padding-left:20px;padding-right:20px;"/>
+										</div>
+								</header>
+							</article>
 					</div>
 
 				<!-- Footer -->
@@ -125,6 +113,20 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 
+			<script type="text/javascript">
+				$(document).ready(function(){
+					$('.your-class').slick({
+						dots: true,
+						infinite: true,
+						speed: 500,
+						fade: true,
+						cssEase: 'linear',
+						autoplay: true,
+  						autoplaySpeed: 3000
+					});
+				});
+			</script>
 	</body>
 </html>
