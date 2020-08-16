@@ -1,0 +1,183 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Processing</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+				<header id="header">
+					<a href="index.html" class="logo">Bryan Lao</a>
+				</header>
+
+			<!-- Nav -->
+				<nav id="nav">
+					<ul class="links">
+						<li><a href="index.html#header">Home</a></li>
+						<li class="active"><a href="processing.html">Processing</a></li>
+						<li><a href="engineering.html">Engineering</a></li>
+						<li><a href="machine_learning.html">Machine Learning</a></li>
+						<li><a href="research.html">Research</a></li>
+						<li><a href="photography.html">Photography</a></li>
+					</ul>
+					<ul class="icons">
+						<li><a href="https://www.linkedin.com/in/bryan-lao-94400b182/" class="icon fa-linkedin"><span class="label">LinkedIn</span></a></li>
+						<li><a href="https://github.com/brytlao" class="icon fa-github"><span class="label">GitHub</span></a></li>
+					</ul>
+				</nav>
+
+				<!-- Main -->
+					<div id="main">
+						<!-- Post -->
+						<section class="post">
+							<header class="major">
+								<a href="https://processing.org/"><h2>Processing</h2></a>
+								<p>I have a dream: to nurture the love child of engineering and art.<br />
+								I share with you my passion for interactive media as I take on <a href="https://thecodingtrain.com/CodingChallenges/">Coding Challenges</a>.<br />
+								Feel free to go through the demos, or check out the repos
+									<a href="https://www.openprocessing.org/user/181789/#sketches">here</a>
+									and <a href="https://editor.p5js.org/brytlao/sketches">here2</a>.
+									<!-- and <a href="https://www.openprocessing.org/user/181789/#sketches">here2</a>. -->
+							</p>
+							</header>
+						</section>
+
+						<script>
+							// available resources
+							let sl = [1,"Video 1", "https://www.youtube.com/embed/X4t0JxiBeO0", "This is Video 1", 
+								2, "Video 2", "https://www.youtube.com/embed/lvtfD_rJ2hE", "This is Video 2",
+								3, "Video 3", "https://www.youtube.com/embed/lCARHatJQJA", "This is Video 3"
+							];
+
+							// change demo loaded
+							function changeDemo(in_index) {
+								changeTitle(in_index);
+								changeSketch(in_index);
+								changeDescript(in_index);
+							}
+
+							// change demo title
+							function changeTitle(in_index) {
+								let new_name = "";
+								// distinguish ~Coding Challenge~ from ~Personal Project~
+								let project_title = "";
+								let disp_num = in_index;
+								if (in_index < 1000) {
+									project_title = "V";
+								} else {
+									project_title = "PP";
+									disp_num = in_index - 1000;
+								}
+
+								// num zeros to add:
+								let zeros = "";
+								if (disp_num >= 1 && disp_num <= 9) {
+									zeros = zeros.concat("00");
+								} else if (disp_num >= 10 && disp_num <= 99) {
+									zeros = zeros.concat("0");
+								}
+								
+								new_name = new_name.concat(project_title,zeros,disp_num,": ",sl[sl.indexOf(in_index)+1]); // HERE
+								document.getElementById("sketch_title").innerHTML = new_name;
+							}
+
+							// change sketch displayed
+							function changeSketch(in_index) {
+								let new_url = sl[sl.indexOf(in_index)+2];
+								window.frames['sketch'].location.replace(new_url);
+							}
+
+							// change description
+							function changeDescript(in_index) {
+								let new_descript = sl[sl.indexOf(in_index)+3];
+								document.getElementById("sketch_descript").innerHTML = new_descript;
+							}
+						</script>
+
+						<!-- Coding Challenge -->
+						<article class="post" id="coding_challenge">
+							<header class="major">
+								<h2 id="sketch_title">VID001: video 1</h2>
+								<p id="sketch_descript" style="margin-top:-25px" style="margin-bottom:-25px">
+									This is Video 1.
+								</p>
+								<header class="minor">
+									<iframe name="sketch"
+										src="https://www.youtube.com/embed/X4t0JxiBeO0"
+										frameborder="0"
+										style="overflow:hidden;height:550;width:100%"
+										height="550" width="100%"
+										allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+										loading="lazy" allowfullscreen>
+									</iframe>
+								</header>
+							</header>
+							<ul class="actions fit small" style="margin-top:-40px">
+								<li><a class="button fit small" onclick="changeDemo(1)">VIDEO1</a></li>
+								<!-- <li><a class="button fit small" onclick="changeDemo(78)">Particle System</a></li> -->
+								<li><a class="button fit small" onclick="changeDemo(2)">VIDEO2</a></li>
+								<li><a class="button fit small" onclick="changeDemo(3)">VIDEO3</a></li>
+							</ul>
+						</article>
+					</div>
+
+					<!-- title as link -->
+					<!-- <a href="https://www.openprocessing.org/sketch/734036" target="_blank"><h2>CC024: Flow Field</h2></a> -->
+
+					<!-- square version of the iframe -->
+					<!-- <div style="position:relative;padding-top:100%;">
+						<iframe src="https://www.openprocessing.org/sketch/729831/" frameborder="0"
+						style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
+					</div> -->
+
+				<!-- Footer -->
+				<footer id="footer">
+					<section class="split contact">
+						<section class="alt">
+							<h3>Address</h3>
+							<p>Nara, Japan</p>
+						</section>
+						<section>
+							<h3>Email</h3>
+							<p><a href="#">brytlao@gmail.com</a></p>
+						</section>
+						<section>
+							<h3>Social</h3>
+							<ul class="icons alt">
+								<li><a href="https://www.linkedin.com/in/bryan-lao-94400b182/" class="icon fa-linkedin"><span class="label">LinkedIn</span></a></li>
+								<li><a href="https://github.com/brytlao" class="icon fa-github"><span class="label">GitHub</span></a></li>
+							</ul>
+						</section>
+					</section>
+				</footer>
+
+				<!-- Copyright -->
+					<div id="copyright">
+						<ul><li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
