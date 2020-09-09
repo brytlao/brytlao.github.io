@@ -45,13 +45,13 @@
 							<header class="major">
 								<h2>Interactive</h2>
 								<p>
-									I always had a fascination for interactive media.<br />
-									It's an opportunity to be creative with formal engineering disciplines.<br />
-									Feel free to go through some demos below, or more in the repos:
-									<a href="https://www.openprocessing.org/user/181789/#sketches">Processing</a>,
-									<a href="https://editor.p5js.org/brytlao/sketches">P5JS</a>, 
-									<a href="https://brytlao.itch.io/">Unity</a>.
-									<!-- <a href="https://thecodingtrain.com/CodingChallenges/">Coding Challenges</a> -->
+								I always had a fascination for interactive media.<br />
+								It's an opportunity to be creative with formal engineering disciplines.<br />
+								Feel free to go through some demos below, or more in the repos:
+								<a href="https://www.openprocessing.org/user/181789/#sketches">Processing</a>,
+								<a href="https://editor.p5js.org/brytlao/sketches">P5JS</a>, 
+								<a href="https://brytlao.itch.io/">Unity</a>.
+								<!-- <a href="https://thecodingtrain.com/CodingChallenges/">Coding Challenges</a> -->
 								</p>
 							</header>
 						</section>
@@ -71,7 +71,10 @@
 								111, "Animated Sprites", "https://editor.p5js.org/brytlao/full/dPS-YDRzc", "Looped animation",
 								1003, "Waterfall Bloom", "https://editor.p5js.org/brytlao/full/aoDVw2mHx", "Click for collision, inspired by TeamLab",
 								1004, "Waterfall Graphics", "https://editor.p5js.org/brytlao/full/eEV_3eeUc", "Inspired by Osaka Station's Fountain",
-								1005, "Koi Pond", "https://editor.p5js.org/brytlao/full/um2WVvzaN", "Click to feed the Koi"
+								1005, "Koi Pond", "https://editor.p5js.org/brytlao/full/um2WVvzaN", "Click to feed the Koi",
+								2001, "Shepherding Sim", "https://www.youtube.com/embed/lCARHatJQJA", "Dog-sheep shepherding simulation [<a href='https://brytlao.itch.io/mi-lab-recreation'>Try on itch.io</a>]",
+								2002, "Virtual Tour", "https://www.youtube.com/embed/lCARHatJQJA", "Virtual tour of my work space [<a href='https://brytlao.itch.io/shepherding-heuristics'>Try on itch.io</a>]",
+								2003, "Escape Room", "https://www.youtube.com/embed/lCARHatJQJA", "Horror escape room game [<a href='https://brytlao.itch.io/escape-room-ali-bryce'>Try on itch.io</a>]"
 							];
 
 							// change demo loaded
@@ -80,20 +83,26 @@
 								changeSketch(in_index);
 								changeDescript(in_index);
 							}
-
+						
 							// change demo title
 							function changeTitle(in_index) {
 								let new_name = "";
-								// distinguish ~Coding Challenge~ from ~Personal Project~
+								// distinguish range:
+								// 0001-0999 ~Coding Challenge~
+								// 1000-1999 ~Personal Project~
+								// 2000-2999 ~Unity~
 								let project_title = "";
 								let disp_num = in_index;
 								if (in_index < 1000) {
 									project_title = "CC";
-								} else {
+								} else if (in_index < 2000) {
 									project_title = "PP";
 									disp_num = in_index - 1000;
+								} else {
+									project_title = "UN";
+									disp_num = in_index - 2000;
 								}
-
+						
 								// num zeros to add:
 								let zeros = "";
 								if (disp_num >= 1 && disp_num <= 9) {
@@ -105,13 +114,13 @@
 								new_name = new_name.concat(project_title,zeros,disp_num,": ",sl[sl.indexOf(in_index)+1]); // HERE
 								document.getElementById("sketch_title").innerHTML = new_name;
 							}
-
+						
 							// change sketch displayed
 							function changeSketch(in_index) {
 								let new_url = sl[sl.indexOf(in_index)+2];
 								window.frames['sketch'].location.replace(new_url);
 							}
-
+						
 							// change description
 							function changeDescript(in_index) {
 								let new_descript = sl[sl.indexOf(in_index)+3];
@@ -149,6 +158,13 @@
 								<li><a class="button fit small" onclick="changeDemo(1003)">Waterfall Bloom</a></li>
 								<li><a class="button fit small" onclick="changeDemo(1004)">Waterfall Graphics</a></li>
 							</ul>
+							<!-- adding unity videos
+							<ul class="actions fit small" style="margin-top:-10px">
+								<li><a class="button fit small" onclick="changeDemo(2003)">Escape Room [UNITY]</a></li>
+								<li><a class="button fit small" onclick="changeDemo(2002)">Virtual Tour [UNITY]</a></li>
+								<li><a class="button fit small" onclick="changeDemo(2001)">Shepherding Sim [UNITY]</a></li>
+							</ul>
+							-->
 						</article>
 					</div>
 
@@ -185,9 +201,12 @@
 
 				<!-- Copyright -->
 					<div id="copyright">
-						<ul><li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+						<ul>
+							<li>Copyright &copy; Bryan Lao. All Rights Reserved</li>
+							<li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+							<li>Template: <a href="https://twitter.com/ajlkn">@ajlkn</a></li>
+						</ul>
 					</div>
-
 			</div>
 
 		<!-- Scripts -->
