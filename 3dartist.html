@@ -1,0 +1,265 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Interactive</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+				<header id="header">
+					<a href="index.html" class="logo">Bryan Lao</a>
+				</header>
+
+			<!-- Nav -->
+				<nav id="nav">
+					<ul class="links">
+						<li><a href="index.html#header">Home</a></li>
+						<li><a href="interactive.html">Interactive</a></li>
+						<li><a href="engineering.html">Engineering</a></li>
+						<li><a href="research.html">Research</a></li>
+						<li class="active"><a href="3dartist.html">3D Artist</a></li>
+					</ul>
+					<ul class="icons">
+						<li><a href="https://www.linkedin.com/in/bryan-lao-94400b182/" class="icon fa-linkedin"><span class="label">LinkedIn</span></a></li>
+						<li><a href="https://github.com/brytlao" class="icon fa-github"><span class="label">GitHub</span></a></li>
+						<li><a href="https://www.instagram.com/brytlao/" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+					</ul>
+				</nav>
+
+				<!-- Demo Scripts-->
+				<script>
+					// available resources
+					let sl = [
+						// section 1: 3D motion production
+						1001, "From mocap to Maya", "my_images/3dartist/01_01_main.html", "I enjoy working with 3D motion and coding physics-based simulations.",
+						1002, "Kei - Maya", "https://www.youtube.com/embed/qGwPjQv2yaM", "I collect MoCap data using MAC3D, and rig characters in Motion Builder.",
+						1003, "Kei - nMotion", "https://www.youtube.com/embed/YMCUY3Rk37k", "I use a musculoskeletal simulation software (nMotion) for estimating muscle parameters and forces.",
+						1004, "Koi Pond", "https://editor.p5js.org/brytlao/full/um2WVvzaN", "I enjoy creating physics simulations. In this demo, each fish is an Inverse Kinematics (IK) chain. [<a href='https://github.com/brytlao/Coding-Challenges'>GitHub</a>]",
+						1005, "Python - tracking", "my_images/3dartist/01_05_python.html", "I also have a working knowledge of Python, which I use for machine learning and computer vision tasks. [<a href='https://github.com/brytlao/Practical_computer_vision/'>GitHub</a>]",
+						// section 2: motion capture experience
+						2001, "Mocap Room", "my_images/3dartist/02_01_main.html", "I’m in charge of a nice motion capture studio.",
+						2002, "Different Actions", "https://www.youtube.com/embed/9UN8JlA2bHU", "I've had the opportunity to work on various types of motion, including professional golf and even dog training.",
+						2003, "Kinect + Myo", "https://www.youtube.com/embed/kMrCJVxxEZk", "I develop tools for motion-sensing tools, using hardware such as <a href='https://developer.microsoft.com/en-us/windows/kinect'>Kinect</a>, <a href='https://developerblog.myo.com/'>Myo</a>, and <a href='https://www.leapmotion.com/'>Leap</a>.",
+						2004, "Leap Motion", "https://www.youtube.com/embed/jVTBqpYgsVs", "In a work with NTT R&D, I developed a haptic feedback system similar to the Sony DualSense controller.",
+						2005, "2D to 87D", "https://www.youtube.com/embed/NlZTqYrYeHQ", "I also analyze human motion data. In this video, I implemented a 2-D interface to control 87-D human motion.",
+						// section 3: game engine
+						3001, "Key Projects", "my_images/3dartist/03_01_main.html", "Within 7 months, I've created 4 projects and 4 mini-games.",
+						3002, "Escape Room", "https://www.youtube.com/embed/whF_44dtC68", "Project 1: Horror escape room game.",
+						3003, "Virtual Tour", "https://www.youtube.com/embed/z68Hs657110", "Project 2: Virtual tour of my work space.",
+						3004, "Shepherding Sim", "https://www.youtube.com/embed/h2cDw33n_gY", "Project 3: Flocking simulation based on real animal behavior.",
+						3005, "Mini Games", "my_images/3dartist/03_05_minigames.html", "I've uploaded all the projects + mini-games, so you can try them yourself. [<a href='https://brytlao.itch.io/'>Try on itch.io</a>]"
+					];
+					
+					// change demo loaded
+					function changeDemo(in_index) {
+						// determine window number
+						let window_num = Math.floor(in_index / 1000);
+						
+						// update content
+						changeSketch(in_index, window_num);
+						changeDescript(in_index, window_num);
+
+						// update button for persistence
+						updateButtons(in_index, window_num);
+					}
+								
+					// change sketch displayed
+					function changeSketch(in_index, window_num) {
+						let new_url = sl[sl.indexOf(in_index)+2];
+						let sketch_name = 'sketch' + window_num;
+						window.frames[sketch_name].location.replace(new_url);
+					}
+				
+					// change description
+					function changeDescript(in_index, window_num) {
+						let new_descript = sl[sl.indexOf(in_index)+3];
+						let sketch_name = 'sketch_descript' + window_num;
+						document.getElementById(sketch_name).innerHTML = new_descript;
+					}
+
+					// update button type
+					function updateButtons(in_index, window_num) {
+						let button_name;
+
+						// reset all in the same window
+						var i;
+						for (i = 1; i <= 5; i++) {
+							button_name = 'b' + window_num + '00' + i;
+							document.getElementById(button_name).className = "button";
+						}
+
+						// set new primary
+						button_name = 'b' + in_index;
+						document.getElementById(button_name).className = "button primary";
+					}
+				</script>
+				
+				<!-- Main -->
+				<div id="main">
+					<!-- Post -->
+					<section class="post" id="top">
+						<!-- header -->
+						<header class="major">
+							<h2>3D Artist Skills</h2>
+							<p>
+							I like to use my engineering skills to create interactive media.<br />
+							Fortunately, I've had the wonderful opportunity to work with various motion studies.<br />
+							Feel free to browse this section for a summary of my works.
+							</p>
+						</header>
+
+						<hr />
+
+						<!-- outline -->
+						<header>
+							<h2>Overview</h2>
+							<p>Click on the link to jump to the section</p>
+						</header>						
+						<ol>
+							<li><a href="#motion_production">3D motion production: MotionBuilder, Scripting</a></li>
+							<li><a href="#motion_capture">Motion Capture experience: MAC3D, Hardware</a></li>
+							<li><a href="#game_engine">Game engine development: Unity</a></li>
+						</ol>
+
+						<hr id="motion_production"/>
+
+						<!-- Section 1: 3D motion production -->						
+						<header>
+							<h2>3D motion production</h2>
+							<p>I have experience in character rigging and motion production by scripting.</p>
+						</header>
+
+						<header class="major" style="margin-top:-20px">
+							<iframe name="sketch1"
+								src="my_images/3dartist/placeholder.png"
+								frameborder="0" style="overflow:hidden;height:500;width:100%"
+								height="500" width="100%" allowfullscreen></iframe>
+							<p id="sketch_descript1"></p>
+						</header>
+
+						<ul class="actions fit small" style="margin-top:-40px">
+							<li><a id="b1001" class="button fit small" onclick="changeDemo(1001)">MAIN</a></li>
+							<li><a id="b1002" class="button fit small" onclick="changeDemo(1002)">MOTIONBUILDER</a></li>
+							<li><a id="b1003" class="button fit small" onclick="changeDemo(1003)">NMOTION</a></li>
+							<li><a id="b1004" class="button fit small" onclick="changeDemo(1004)">PHYSICS</a></li>
+							<li><a id="b1005" class="button fit small" onclick="changeDemo(1005)">PYTHON</a></li>
+						</ul>
+
+						[<a href="#top">back to top</a>]
+
+						<hr id="motion_capture"/>
+
+						<!-- Section 2 -->
+						<header>
+							<h2>Motion Capture experience</h2>
+							<p>I have 4+ years' experience in motion capture (collecting, post-processing, development, analysis).</p>
+						</header>
+
+						<header class="major" style="margin-top:-20px">
+							<iframe name="sketch2"
+								src="my_images/3dartist/placeholder.png"
+								frameborder="0" style="overflow:hidden;height:500;width:100%"
+								height="500" width="100%" allowfullscreen></iframe>
+							<p id="sketch_descript2"></p>
+						</header>
+
+						<ul class="actions fit small" style="margin-top:-40px">
+							<li><a id="b2001" class="button fit small" onclick="changeDemo(2001)">MAIN</a></li>
+							<li><a id="b2002" class="button fit small" onclick="changeDemo(2002)">MOCAP</a></li>
+							<li><a id="b2003" class="button fit small" onclick="changeDemo(2003)">TOOL DEV</a></li>
+							<li><a id="b2004" class="button fit small" onclick="changeDemo(2004)">HAPTIC FEEDBACK</a></li>
+							<li><a id="b2005" class="button fit small" onclick="changeDemo(2005)">RESEARCH</a></li>
+						</ul>
+
+						[<a href="#top">back to top</a>]
+
+						<hr id="game_engine"/>
+
+						<!-- Section 3 -->
+						<header>
+							<h2>Game engine development</h2>
+							<p>I have enjoyed creating games since I started learning Unity one year ago.</p>
+						</header>
+
+						<header class="major" style="margin-top:-20px">
+							<iframe name="sketch3"
+								src="my_images/3dartist/placeholder.png"
+								frameborder="0" style="overflow:hidden;height:500;width:100%"
+								height="500" width="100%" allowfullscreen></iframe>
+							<p id="sketch_descript3"></p>
+						</header>
+
+						<ul class="actions fit small" style="margin-top:-40px">
+							<li><a id="b3001" class="button fit small" onclick="changeDemo(3001)">MAIN</a></li>
+							<li><a id="b3002" class="button fit small" onclick="changeDemo(3002)">ESCAPE ROOM</a></li>
+							<li><a id="b3003" class="button fit small" onclick="changeDemo(3003)">VIRTUAL TOUR</a></li>
+							<li><a id="b3004" class="button fit small" onclick="changeDemo(3004)">SHEPHERDING</a></li>
+							<li><a id="b3005" class="button fit small" onclick="changeDemo(3005)">MINIGAMES</a></li>
+						</ul>
+
+						[<a href="#top">back to top</a>]
+
+
+						<!-- initialize button choices -->
+						<script>changeDemo(1001)</script>
+						<script>changeDemo(2001)</script>
+						<script>changeDemo(3001)</script>
+
+					</section>
+				</div>
+
+				<!-- Footer -->
+				<footer id="footer">
+					<section class="split contact">
+						<section class="alt">
+							<h3>Address</h3>
+							<p>Nara, Japan</p>
+						</section>
+						<section>
+							<h3>Email</h3>
+							<p><a href="#">brytlao@gmail.com</a></p>
+						</section>
+						<section>
+							<h3>Social</h3>
+							<ul class="icons alt">
+								<li><a href="https://www.linkedin.com/in/bryan-lao-94400b182/" class="icon fa-linkedin"><span class="label">LinkedIn</span></a></li>
+								<li><a href="https://github.com/brytlao" class="icon fa-github"><span class="label">GitHub</span></a></li>
+								<li><a href="https://www.instagram.com/brytlao/" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+							</ul>
+						</section>
+					</section>
+				</footer>
+
+				<!-- Copyright -->
+					<div id="copyright">
+						<ul>
+							<li>Copyright &copy; Bryan Lao. All Rights Reserved</li>
+							<li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+							<li>Template: <a href="https://twitter.com/ajlkn">@ajlkn</a></li>
+						</ul>
+					</div>
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
