@@ -1,0 +1,33 @@
+<html>
+    <!-- URL params -->
+    <script> 
+      function updateImgByParameter() { 
+          let urlString = window.location.href;
+
+          let paramString = urlString.split('?')[1]; 
+            
+          let params_arr = paramString.split('&'); 
+        
+          // get each key-value pair
+          for (let i = 0; i < params_arr.length; i++) { 
+              let pair = params_arr[i].split('='); 
+          }
+
+          // get first pair
+          const first_idx = 0;
+          const pair = params_arr[first_idx].split('='); 
+          const new_img = pair[1];
+          document.getElementById("disp_img").src = new_img;
+      }
+  </script> 
+
+  <!-- init image -->
+  <body style="text-align:center">
+    <img id="disp_img" src="placeholder.png" alt=""/>
+  </body>
+
+  <!-- update image -->
+  <script> 
+    updateImgByParameter();
+  </script>
+</html>
