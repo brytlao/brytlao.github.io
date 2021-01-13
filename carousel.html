@@ -54,56 +54,48 @@
 					<ul class="icons">
 						<li><a href="https://www.linkedin.com/in/bryan-lao-94400b182/" class="icon fa-linkedin"><span class="label">LinkedIn</span></a></li>
 						<li><a href="https://github.com/brytlao" class="icon fa-github"><span class="label">GitHub</span></a></li>
+						<li><a href="https://www.instagram.com/brytlao/" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
 					</ul>
 				</nav>
 
 				<!-- Main -->
 					<div id="main">
 						<!-- Post -->
-							<section class="post">
-								<header class="major">
-									<h2>Photography</h2>
-									<p>
-									I took up photography as a hobby.<br />
-									This practice has helped me gain a better sense of style.<br />
-									I also blog for our university <a href="http://vsp.naist.jp/?p=1529&lang=en">here</a>. 
-									</p>
-								</header>
-							</section>
+						<section class="post">
+							<header class="major">
+								<h2>Photography</h2>
+								<p>
+								I took up photography as a hobby.<br />
+								This practice has helped me gain a better sense of style.<br />
+								I also blog for our university <a href="http://vsp.naist.jp/?p=1529&lang=en">here</a>. 
+								</p>
+							</header>
+						</section>
 
-							<!-- Carousel -->
-							<article class="post" id="carousel">
-								<header class="major">
-									<div class="your-class">
-										<div>
-											<h3 style="margin-top:-5px" style="margin-bottom:-5px">Sample Video 1</h3>
-											<div class="iframe-container">
-												<iframe width="560" height="315" src="https://www.youtube.com/embed/X4t0JxiBeO0"
-												frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-												loading="lazy" allowfullscreen>
-												</iframe>
-											</div>
-										</div>
-										<div>
-											<h3 style="margin-top:-5px" style="margin-bottom:-5px">Sample Video 2</h3>
-											<div class="iframe-container">
-												<iframe width="560" height="315" src="https://www.youtube.com/embed/lvtfD_rJ2hE"
-												frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-												loading="lazy" allowfullscreen>
-												</iframe>
-											</div>
-										</div>
-										<div>
-											<h3 style="margin-top:-5px" style="margin-bottom:-5px">Sample Video 3</h3>
-											<div class="iframe-container">
-												<iframe width="560" height="315" src="https://www.youtube.com/embed/lCARHatJQJA"
-												frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-												loading="lazy" allowfullscreen>
-												</iframe>
-											</div>
-										</div>
-								</header>
-							</article>
+						<!-- Carousel -->
+						<article class="post" id="carousel" style="padding-top:60px;">
+							<header class="major">
+								<h2 id="sketch_title">Gallery</h2>
+							<p id="sketch_descript" style="margin-top:-25px" style="margin-bottom:-25px">Feel free to check my instagram [<a href="https://www.instagram.com/brytlao/">link</a>]</p>
+								<div class="your-class" id="gallery"></div>
+							</header>
+						</article>
+
+						<!-- populate carousel -->
+						<script>
+							var gal = document.getElementById('gallery');
+							var num_pics = 20;
+							for (var i = 1; i <= num_pics ; i++) {
+								if (i < 10)
+								{
+									gal.innerHTML += '<div><img id="disp_img" src="my_images/photography/0' + i + '.jpg" class="image fit" alt=""/></div>';
+								}
+								else 
+								{
+									gal.innerHTML += '<div><img id="disp_img" src="my_images/photography/' + i + '.jpg" class="image fit" alt=""/></div>';
+								}	
+							};
+						</script>
 					</div>
 
 				<!-- Footer -->
@@ -153,7 +145,7 @@
 						fade: true,
 						cssEase: 'linear',
 						autoplay: true,
-  						autoplaySpeed: 3000
+						autoplaySpeed: 3000
 					});
 				});
 			</script>

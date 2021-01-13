@@ -11,6 +11,25 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<link rel="stylesheet" href="assets/slick/slick.css" />
+		<link rel="stylesheet" href="assets/slick/slick-theme.css" />
+		<style>
+			.iframe-container {
+			overflow: hidden;
+			/* 16:9 aspect ratio */
+			padding-top: 56.25%;
+			position: relative;
+			}
+
+			.iframe-container iframe {
+			border: 0;
+			height: 100%;
+			left: 0;
+			position: absolute;
+			top: 0;
+			width: 100%;
+			}
+		</style>
 	</head>
 	<body class="is-preload">
 
@@ -52,41 +71,30 @@
 								</header>
 							</section>
 
-							<!-- Photos -->						
-							<section class="posts">
-								<article>
-									<h4>Grande Santa Cruz</h4>
-									<img class="image fit" src="my_images/photography/philippines.jpg" alt="" />
-								</article>
-								<article>
-									<h4>Osaka Expo Park</h4>
-									<img class="image fit" src="my_images/photography/girl.jpg" alt="" />
-								</article>
-								<article>
-									<h4>Nagasaki Peace Park</h4>
-									<img class="image fit" src="my_images/photography/couple.jpg" alt="" />
-								</article>
-								<article>
-									<h4>Yakan Weaving Village</h4>
-									<img class="image fit" src="my_images/photography/boy.jpg" alt="" />
-								</article>
-								<article>
-									<h4>Akahadayama Kiln</h4>
-									<img class="image fit" src="my_images/photography/workshop.jpg" alt="" />
-								</article>
-								<article>
-									<h4>Saho River</h4>
-									<img class="image fit" src="my_images/photography/hanami.jpg" alt="" />
-								</article>
-								<article>
-									<h4>Marina Bay Fireworks</h4>
-									<img class="image fit" src="my_images/photography/fireworks.jpg" alt="" />
-								</article>
-								<article>
-									<h4>Mt Inasa</h4>
-									<img class="image fit" src="my_images/photography/nagasaki.jpg" alt="" />
-								</article>
-							</section>
+						<!-- Carousel -->
+						<article class="post" id="carousel" style="padding-top:60px;">
+							<header class="major">
+								<h2 id="sketch_title">Gallery</h2>
+							<p id="sketch_descript" style="margin-top:-25px" style="margin-bottom:-25px">Feel free to browse</p>
+								<div class="your-class" id="gallery"></div>
+							</header>
+						</article>
+
+						<!-- populate carousel -->
+						<script>
+							var gal = document.getElementById('gallery');
+							var num_pics = 20;
+							for (var i = 1; i <= num_pics ; i++) {
+								if (i < 10)
+								{
+									gal.innerHTML += '<div><img id="disp_img" src="my_images/photography/0' + i + '.jpg" class="image fit" alt=""/></div>';
+								}
+								else 
+								{
+									gal.innerHTML += '<div><img id="disp_img" src="my_images/photography/' + i + '.jpg" class="image fit" alt=""/></div>';
+								}	
+							};
+						</script>
 					</div>
 
 				<!-- Footer -->
@@ -129,6 +137,20 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 
+			<script type="text/javascript">
+				$(document).ready(function(){
+					$('.your-class').slick({
+						dots: true,
+						infinite: true,
+						speed: 500,
+						fade: true,
+						cssEase: 'linear',
+						autoplay: true,
+						autoplaySpeed: 3000
+					});
+				});
+			</script>
 	</body>
 </html>
